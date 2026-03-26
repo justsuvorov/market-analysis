@@ -1,0 +1,31 @@
+{
+  "catboost": {
+    "iterations": 200,
+    "learning_rate": 0.05,
+    "depth": 4,
+    "loss_function": "MultiClass",
+    "eval_metric": "Accuracy",
+    "random_seed": 42,
+    "verbose": 0
+  },
+  "features": [
+    "distance_spb_km",
+    "price_per_night_min",
+    "price_per_night_max",
+    "cottage_count",
+    "rating",
+    "reviews_count",
+    "infrastructure_count"
+  ],
+  "target": "price_segment",
+  "classes": ["economy", "standard", "premium"],
+  "feature_descriptions": {
+    "distance_spb_km": "Расстояние от СПб, км",
+    "price_per_night_min": "Минимальная цена/ночь, руб",
+    "price_per_night_max": "Максимальная цена/ночь, руб",
+    "cottage_count": "Количество коттеджей",
+    "rating": "Рейтинг на агрегаторах (0–5)",
+    "reviews_count": "Количество отзывов",
+    "infrastructure_count": "Количество объектов инфраструктуры"
+  }
+}

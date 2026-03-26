@@ -1,0 +1,27 @@
+# Секреты
+.env
+
+# Данные (не коммитим сырые/обработанные датасеты)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ML артефакты
+*.cbm
+*.pkl
+*.joblib
+
+# OS
+.DS_Store
+Thumbs.db

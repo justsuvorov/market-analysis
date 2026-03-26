@@ -21,7 +21,7 @@
     },
     "income_level": {
       "type": "string",
-      "enum": ["средний", "выше_среднего", "высокий"],
+      "enum": ["medium", "above_average", "high"],
       "description": "Уровень дохода"
     },
     "geography": {

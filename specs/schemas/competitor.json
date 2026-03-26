@@ -12,7 +12,7 @@
     "distance_spb_km": { "type": "number", "minimum": 0, "description": "Расстояние от СПб, км" },
     "format": {
       "type": "string",
-      "enum": ["коттеджный_посёлок", "загородный_клуб", "эко_отель", "база_отдыха", "смешанный"],
+      "enum": ["cottage_village", "country_club", "eco_hotel", "resort", "mixed"],
       "description": "Формат объекта"
     },
     "price_per_night_rub": {
@@ -33,7 +33,7 @@
     "reviews_count": { "type": "integer", "minimum": 0 },
     "occupancy_estimate": {
       "type": "string",
-      "enum": ["высокая", "средняя", "низкая", "неизвестно"]
+      "enum": ["high", "medium", "low", "unknown"]
     },
     "strengths": { "type": "array", "items": { "type": "string" } },
     "weaknesses": { "type": "array", "items": { "type": "string" } },

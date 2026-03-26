@@ -1,5 +1,5 @@
 # Agents
-pydantic-ai>=0.0.14
+pydantic-ai[google]>=0.0.14
 pydantic>=2.7
 
 # HTTP

@@ -16,7 +16,7 @@
         "market_volume_rub": { "type": "integer", "description": "Объём рынка, руб/год (оценка)" },
         "growth_trend": {
           "type": "string",
-          "enum": ["растёт", "стабильный", "снижается"],
+          "enum": ["growing", "stable", "declining"],
           "description": "Динамика рынка"
         },
         "seasonality_notes": { "type": "string" },

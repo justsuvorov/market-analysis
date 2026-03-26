@@ -1,0 +1,32 @@
+{
+  "catboost": {
+    "iterations": 300,
+    "learning_rate": 0.05,
+    "depth": 4,
+    "loss_function": "RMSE",
+    "eval_metric": "RMSE",
+    "random_seed": 42,
+    "verbose": 0
+  },
+  "glm": {
+    "fit_intercept": true
+  },
+  "features": [
+    "distance_spb_min",
+    "land_price_rub_sotka",
+    "competition_density",
+    "water_proximity_km",
+    "has_unique_attraction",
+    "infrastructure_score",
+    "legal_restrictions"
+  ],
+  "feature_descriptions": {
+    "distance_spb_min": "Время в пути от СПб (мин) — меньше лучше",
+    "land_price_rub_sotka": "Стоимость земли (руб/сотка) — меньше лучше",
+    "competition_density": "Количество конкурентов в радиусе 10 км — меньше лучше",
+    "water_proximity_km": "Расстояние до воды (км) — меньше лучше",
+    "has_unique_attraction": "Наличие уникального аттрактора (0/1) — больше лучше",
+    "infrastructure_score": "Балл инфраструктуры района (1–10) — больше лучше",
+    "legal_restrictions": "Правовые ограничения (0/1) — меньше лучше"
+  }
+}
