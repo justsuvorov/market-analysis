@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "customer_segment",
+  "title": "AudienceSegment",
+  "description": "Сегмент целевой аудитории коттеджного комплекса",
+  "type": "object",
+  "required": ["segment_id", "name", "motivation", "decision_criteria", "barriers"],
+  "properties": {
+    "segment_id": {
+      "type": "string",
+      "enum": ["investor", "buyer", "renter"],
+      "description": "investor=инвестор в строительство, buyer=покупатель дома, renter=арендатор"
+    },
+    "name": { "type": "string", "description": "Название сегмента" },
+    "age_range": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Возрастной диапазон [min, max]"
+    },
+    "income_level": {
+      "type": "string",
+      "enum": ["средний", "выше_среднего", "высокий"],
+      "description": "Уровень дохода"
+    },
+    "geography": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Географические характеристики (СПб, Москва, ...)"
+    },
+    "motivation": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Ключевые мотивы"
+    },
+    "decision_criteria": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Критерии выбора объекта"
+    },
+    "barriers": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Барьеры и возражения"
+    },
+    "preferred_channels": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Каналы коммуникации (VK, Telegram, ...)"
+    },
+    "willingness_to_pay_rub": {
+      "type": "object",
+      "properties": {
+        "min": { "type": "integer", "minimum": 0 },
+        "max": { "type": "integer", "minimum": 0 }
+      },
+      "required": ["min", "max"],
+      "description": "Готовность платить, руб (аренда/ночь или покупка)"
+    }
+  }
+}

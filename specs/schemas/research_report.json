@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "research_report",
+  "title": "ResearchReport",
+  "description": "Финальный отчёт маркетингового исследования",
+  "type": "object",
+  "required": ["title", "created_at", "market_overview", "competitors", "locations", "audience_segments", "swot", "conclusions"],
+  "properties": {
+    "title": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "market_overview": {
+      "type": "object",
+      "required": ["summary", "market_volume_rub", "growth_trend", "seasonality_notes", "key_trends"],
+      "properties": {
+        "summary": { "type": "string" },
+        "market_volume_rub": { "type": "integer", "description": "Объём рынка, руб/год (оценка)" },
+        "growth_trend": {
+          "type": "string",
+          "enum": ["растёт", "стабильный", "снижается"],
+          "description": "Динамика рынка"
+        },
+        "seasonality_notes": { "type": "string" },
+        "key_trends": { "type": "array", "items": { "type": "string" } },
+        "years_covered": {
+          "type": "array",
+          "items": { "type": "integer" },
+          "description": "Годы анализа (последние 3–5 лет)"
+        }
+      }
+    },
+    "competitors": {
+      "type": "array",
+      "items": { "$ref": "competitor.json" },
+      "minItems": 10,
+      "maxItems": 15
+    },
+    "failed_cases": {
+      "type": "array",
+      "items": { "$ref": "competitor.json" },
+      "minItems": 2
+    },
+    "locations": {
+      "type": "array",
+      "items": { "$ref": "location.json" },
+      "minItems": 3,
+      "maxItems": 4
+    },
+    "audience_segments": {
+      "type": "array",
+      "items": { "$ref": "customer_segment.json" },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "concept_variants": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["name", "positioning", "usp", "target_segment_ids", "feasibility_score"],
+        "properties": {
+          "name": { "type": "string" },
+          "positioning": { "type": "string" },
+          "usp": { "type": "string", "description": "Уникальное торговое предложение" },
+          "architectural_notes": { "type": "string" },
+          "target_segment_ids": {
+            "type": "array",
+            "items": { "type": "string", "enum": ["investor", "buyer", "renter"] }
+          },
+          "feasibility_score": { "type": "integer", "minimum": 1, "maximum": 10 },
+          "pros": { "type": "array", "items": { "type": "string" } },
+          "cons": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "expert_interview_guide": {
+      "type": "object",
+      "required": ["experts", "questions"],
+      "properties": {
+        "experts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "project", "key_topics"],
+            "properties": {
+              "name": { "type": "string" },
+              "project": { "type": "string" },
+              "key_topics": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "questions": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "swot": {
+      "type": "object",
+      "required": ["strengths", "weaknesses", "opportunities", "threats"],
+      "properties": {
+        "strengths":     { "type": "array", "items": { "type": "string" } },
+        "weaknesses":    { "type": "array", "items": { "type": "string" } },
+        "opportunities": { "type": "array", "items": { "type": "string" } },
+        "threats":       { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "conclusions": { "type": "string", "description": "Итоговые выводы и рекомендации по проекту" }
+  }
+}

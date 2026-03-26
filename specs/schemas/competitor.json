@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "competitor",
+  "title": "CompetitorProfile",
+  "description": "Профиль объекта-конкурента коттеджного комплекса",
+  "type": "object",
+  "required": ["name", "location", "format", "is_failed_case"],
+  "properties": {
+    "name": { "type": "string", "description": "Название объекта" },
+    "url": { "type": "string", "format": "uri", "description": "Сайт или страница бронирования" },
+    "location": { "type": "string", "description": "Населённый пункт / район" },
+    "distance_spb_km": { "type": "number", "minimum": 0, "description": "Расстояние от СПб, км" },
+    "format": {
+      "type": "string",
+      "enum": ["коттеджный_посёлок", "загородный_клуб", "эко_отель", "база_отдыха", "смешанный"],
+      "description": "Формат объекта"
+    },
+    "price_per_night_rub": {
+      "type": "object",
+      "properties": {
+        "min": { "type": "integer", "minimum": 0 },
+        "max": { "type": "integer", "minimum": 0 }
+      },
+      "required": ["min", "max"]
+    },
+    "cottage_count": { "type": "integer", "minimum": 1, "description": "Количество коттеджей / номеров" },
+    "infrastructure": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Перечень инфраструктуры: ['баня', 'детская_площадка', ...]"
+    },
+    "rating": { "type": "number", "minimum": 0, "maximum": 5, "description": "Средний рейтинг на агрегаторах" },
+    "reviews_count": { "type": "integer", "minimum": 0 },
+    "occupancy_estimate": {
+      "type": "string",
+      "enum": ["высокая", "средняя", "низкая", "неизвестно"]
+    },
+    "strengths": { "type": "array", "items": { "type": "string" } },
+    "weaknesses": { "type": "array", "items": { "type": "string" } },
+    "is_failed_case": { "type": "boolean", "description": "Является ли неудачным кейсом" },
+    "failure_reasons": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Причины неудачи (только если is_failed_case=true)"
+    }
+  }
+}

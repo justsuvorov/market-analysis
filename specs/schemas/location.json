@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "location",
+  "title": "LocationScore",
+  "description": "Локация с оценкой инвестиционной привлекательности",
+  "type": "object",
+  "required": ["name", "distance_spb_min", "infrastructure_score", "legal_restrictions"],
+  "properties": {
+    "name": { "type": "string", "description": "Название локации" },
+    "distance_spb_min": { "type": "integer", "minimum": 0, "description": "Время в пути от СПб, мин" },
+    "land_price_rub_sotka": { "type": "integer", "minimum": 0, "description": "Стоимость земли, руб/сотка" },
+    "competition_density": { "type": "integer", "minimum": 0, "description": "Кол-во конкурентов в радиусе 10 км" },
+    "water_proximity_km": { "type": "number", "minimum": 0, "description": "Расстояние до воды, км" },
+    "unique_attraction": { "type": ["string", "null"], "description": "Уникальный аттрактор (серфинг, горнолыжка и т.д.)" },
+    "infrastructure_score": { "type": "integer", "minimum": 1, "maximum": 10, "description": "Балл инфраструктуры района" },
+    "legal_restrictions": { "type": "boolean", "description": "Наличие правовых ограничений" },
+    "legal_notes": { "type": ["string", "null"], "description": "Комментарий по правовым ограничениям" },
+    "total_score": { "type": "number", "description": "Итоговый балл (GLM/CatBoost)" },
+    "recommendation": { "type": "string", "description": "Итоговая рекомендация по локации" }
+  }
+}

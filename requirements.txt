@@ -1,0 +1,22 @@
+# Agents
+pydantic-ai>=0.0.14
+pydantic>=2.7
+
+# HTTP
+httpx>=0.27
+
+# ML
+catboost>=1.2
+statsmodels>=0.14
+scikit-learn>=1.4
+pandas>=2.2
+numpy>=1.26
+
+# Code generation
+datamodel-code-generator>=0.25
+
+# Report
+jinja2>=3.1
+
+# Dev
+pytest>=8.0
